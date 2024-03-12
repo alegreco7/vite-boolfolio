@@ -1,34 +1,16 @@
 <script>
-import ProjectCard from "./components/ProjectCard.vue";
-import { store } from "./store";
-import axios from 'axios';
+import AppHeader from "./components/AppHeader.vue";
 export default {
   components:{
-    ProjectCard
-  },
-  data() {
-    return {
-      store
-    }
-  },
-  created() {
-    this.getProjects();
-  },
-  methods: {
-    getProjects(){
-      axios.get(store.endpoint).then(response => {
-        store.projects = response.data.results
-        console.log(response.data.results);
-      })
-    }
-  },
+    AppHeader
+  }
 }
 </script>
-
 <template lang="">
-  <ProjectCard></ProjectCard>
+  <AppHeader></AppHeader>
+  <router-view></router-view>
+  
 </template>
-
 <style lang="scss">
   @use './styles/generals.scss'
 </style>
